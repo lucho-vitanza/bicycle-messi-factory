@@ -3,3 +3,6 @@ backend/.env
 
 backend/artifacts
 backend/node_modules
+backend/cache
+
+package-lock.json
