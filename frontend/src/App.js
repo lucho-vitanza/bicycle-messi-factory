@@ -2,7 +2,8 @@ import logo from './logo.svg';
 import './App.css';
 import Login from './components/Login';
 import React, { useState } from 'react';
-import BiciCard from './components/BiciCard';
+import BiciCard from './components/BicyCard';
+import Warehouse from './components/Warehouse';
 
 
 function  App() {   
@@ -10,7 +11,8 @@ function  App() {
   return (
     <div>
     <Login/>
-    <BiciCard texto="Bicicleta 1"/>
+    <BiciCard text="Bicicleta 1" urlImage="https://picsum.photos/200/300" price="200"/>
+    <Warehouse/>
     </div>
    
   );
