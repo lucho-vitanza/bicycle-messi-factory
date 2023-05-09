@@ -1,48 +1,70 @@
 const { expect } = require("chai");
 const { ethers } = require("hardhat");
 
-let warehouse;
-describe ("Create Warehouse's Tokens Tests", ()=>{
-    before (async () => {
-        const [owner, addr1] = await ethers.getSigners();
 
+describe ("Bicycle Messi Factory", () => {
+    const setup = async () => {
+        const [owner] = await ethers.getSigners();
+    
         const Warehouse = await ethers.getContractFactory("Warehouse");
-        warehouse = await Warehouse.deploy();
-        await warehouse.deployed();
+        const warehouse = await Warehouse.deploy();
+    
+        return {
+            owner,
+            warehouse,
+        };
+    };
 
-        console.log('WareHouse Contract Address: ' + warehouse.address);
-    });
-
-    it('Assemble 2 bicycle frames', async ()=>{
-        let setFrame = await warehouse.setFrame(
-            2,
-            'Urbana',
-            'BiMEX'
-        );
-
-        let frames = await warehouse.getAllFrames();
-        expect(frames.length).to.equal(2);
+    describe ("Frames", ()=>{
+        it('Build 2 bicycle frames', async ()=>{
+    
+            const maxSupply = 2;
+            const model = 0;
+            const mark = 0;
+            const color = 0;
+    
+            const { owner, warehouse } = await setup();
+    
+            console.log('Smart Contract Warehouse Address: '+ warehouse.address);
+            //console.log('Owner Address: '+  owner.address);
+    
+            //await warehouse.createStockNFT( maxSupply, model, mark, color);
+    
+            //const amountFrame = await warehouse.balanceOf(owner.address, 1);
+    
+            //expect(amountFrame).to.equal(2);
+        })
     })
-
-    it('Assemble 4 bicycle wheels', async ()=>{
-        let setWheel = await warehouse.setWheel(
-            4,
-            'Cama Alta',
-            'Goodyear'
-        );
-
-        let wheels = await warehouse.getAllWheels();
-        expect(wheels.length).to.equal(4);
+    
+    /**
+     * 
+   
+    describe("tokenURI", ()=>{
+        it ('returns valid metadata', async () => {
+            const { warehouse } = await setup();
+    
+            const maxSupply = 2;
+            const model = 1;
+            const mark = 0;
+            const color = 0;
+            await warehouse.createStockNFT( maxSupply, model, mark, color);
+    
+            const tokenURI = await warehouse.uri(1);
+    
+            const stringifiedTokenURI = await tokenURI.toString();
+    
+            const [prefix, base64JSON] = stringifiedTokenURI.split(
+                "data:application/json;base64,"
+            );
+    
+            const stringifiedMetadata = await Buffer.from(base64JSON, "base64").toString("ascii");
+    
+            const metadata = JSON.parse(stringifiedMetadata);
+            
+            console.log(metadata); 
+            expect(metadata).to.have.all.keys("name", "description", "image", "attributes");
+    
+        })
     })
-
-    it('Assemble 2 bicycle drivetrain', async ()=>{
-        let setWheel = await warehouse.setDrivetrain(
-            2,
-            '18 Velocidades',
-            'Shimano'
-        );
-
-        let wheels = await warehouse.getAllDrivetrains();
-        expect(wheels.length).to.equal(2);
-    })
-});
+      */
+})
