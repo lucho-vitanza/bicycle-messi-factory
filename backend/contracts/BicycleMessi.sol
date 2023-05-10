@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.7.3;
+pragma solidity ^0.8.19;
 
 import "hardhat/console.sol";
 import "@openzeppelin/contracts/token/ERC1155/ERC1155.sol";
@@ -59,6 +59,10 @@ contract CNFTSTOCK {
             success=true;
             return(success);
 
+        elif adress is not Owner then: 
+        
+            "Solo la empresa puede mintear"
+
 
     }
 
@@ -106,3 +110,4 @@ contract BicycleMessi is ERC1155, Ownable {
     }
 
 }
+
