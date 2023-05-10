@@ -9,19 +9,19 @@ interface IBuilder {
     function buildFrame(uint8 _model, uint8 _mark, uint8 _color) external returns (uint);
     function buildWheel() external;
     function buildDrivetrain() external;
-    function buildCabling() external;
-    function buildPeripheral() external;
+    function buildchain() external;
     function reset() external;
 }
 
 contract Stock {
-    using Strings for uint256;
+
+    using Strings for uint256; //biblioteca de open para hacer concatenacionacion en el for
 
     Part[] private _parts;
 
     function AddParts(Part memory _part) public 
     {
-        _parts.push(_part);
+        Parts.push(_part);
     }
 
     function ListParts() public view returns(string memory)
