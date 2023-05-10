@@ -5,11 +5,19 @@ import "@openzeppelin/contracts/utils/Counters.sol";
 import "@openzeppelin/contracts/utils/Strings.sol";
 import "./StructDeclaration.sol";
 
+
+// TO DO 
+
+//funcion enviar el stock a la wallet de de grupo messi 
+// calculo de tiempos
+//impl,entar whitelist para el minteo
+
+
 interface IBuilder {
-    function buildFrame(uint8 _model, uint8 _mark, uint8 _color) external returns (uint);
-    function buildWheel() external;
-    function buildDrivetrain() external;
-    function buildchain() external;
+    function buildFrame(uint8 _model, uint8 _mark, uint8 _color) external returns (uint);   //conjunto cuadro
+    function buildWheel() external;                                                         //conjunto ruedas
+    function buildDrivetrain() external;                                                    //conjunto manubrio
+    function buildchain() external;                                                         //conjunto trans. movimiento
     function reset() external;
 }
 
@@ -28,7 +36,7 @@ contract Stock {
     {
         string memory str;
        for (uint i = 0; i < _parts.length; i++) {
-            str = string.concat(_parts[i].id.toString(), " - ", uint256(_parts[i].kind).toString(), "\n");
+            str = string.concat(_parts[i].id.toString(), " - ", uint256(_parts[i].kind).toString(), "\n"); // no entiendo
         }
         return str;
     }
@@ -43,24 +51,32 @@ contract Stock {
     }
 }
 
-contract StockBuilder is IBuilder {
+contract StockBuilder is IBuilder { //con is builder, que significa?
 
-    Stock private _stock = new Stock();
+    Stock private _stock = new Stock(); //instancias la clase stock
 
-    using Counters for Counters.Counter;
-    Counters.Counter private currentTokenId;
+    using Counters for Counters.Counter; //no entiendo para que lo usamos
+    Counters.Counter private currentTokenId; //que hace?
 
-    function reset() public override 
+    function reset() public override // si reset es llamada, resetea la lista de stock?
     {
-        _stock = new Stock();
+        _stock = new Stock(); 
     }
 
-    function buildFrame( uint8 _model, uint8 _mark, uint8 _color) public override returns (uint)
+    function buildFrame( uint8 _model, uint8 _mark, uint8 _color, uint256 _tiempo) public override returns (uint)
     {   
         currentTokenId.increment();
         uint256 newItemId = currentTokenId.current();
+        uint256 tiempo = _tiempo
         _stock.AddParts(Part(newItemId, Kind.Frame, _model, _mark, _color, State.Available));
-        return newItemId;
+        return newItemId, tiempo;
+    }
+
+    function calculotiempo(uint256 _tiempoSTD, uint256 tiempo) external private returns (uint256 _tiempoSTD)
+    {
+        tiempoSTD = _tiempoSTD + tiempo
+        return tiempoSTD;
+
     }
 
     function buildWheel() external override {}
@@ -93,7 +109,18 @@ contract Director {
         _builder.buildFrame(_model, _mark, _color);
         _builder.buildDrivetrain();
         _builder.buildWheel();
-        _builder.buildCabling();
-        _builder.buildPeripheral();
+        _builder.buildchain();
+        
     }
+
+
+ 
+
+
+
+
+
+
+
+
 }
