@@ -19,7 +19,7 @@ enum State {
 enum Kind {
         Frame,
         Wheel,
-        Drivetrain,
-        Cabling,
-        Peripheral
+        Drivetraing,
+        Chain,
+        
 }

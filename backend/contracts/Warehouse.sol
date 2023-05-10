@@ -44,7 +44,7 @@ contract Warehouse is ERC1155, ERC1155Supply, StockBuilder, Stock{
     */
 
     /**
-    *   Fallback — Receive function
+    *   Callback — Receive function
     */
 
     /**

@@ -41,7 +41,8 @@ contract Stock {
         return str;
     }
 
-    function getAtrributesByPart(uint idx) public view returns (uint8 [3] memory){
+    function getAtrributesByPart(uint idx) public view returns (uint8 [3] memory)
+    {
         uint8 [3] memory atrr;
         atrr[0] = _parts[idx].model;
         atrr[1]= _parts[idx].mark;
