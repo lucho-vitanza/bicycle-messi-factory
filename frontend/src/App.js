@@ -1,28 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
-import Login from './components/Login';
-import React, { useState } from 'react';
-import BiciCard from './components/BicyCard';
-import Warehouse from './components/Warehouse';
+import logo from "./logo.svg";
+import "./App.css";
+import Login from "./components/Login";
+import React, { useState } from "react";
+import Warehouse from "./components/Warehouse";
+import FactoryCard from "./components/FactoryCard";
+import { dbBicycle } from "./db/dbBicycle";
 
-
-function  App() {   
-  
+function App() {
+  // console.log("db en app", dbBicycle)
   return (
-    <div>
-    <Login/>
-    <BiciCard text="Bicicleta 1" urlImage="https://picsum.photos/200/300" price="200"/>
-    <Warehouse/>
+    <div className="">
+      <Login />
+      <FactoryCard arrBicycle={dbBicycle} />
+      <Warehouse />
     </div>
-   
   );
-  }
-
-    
-
+}
 
 export default App;
-
 
 // import React, { useState } from "react";
 // import Web3 from "web3";
