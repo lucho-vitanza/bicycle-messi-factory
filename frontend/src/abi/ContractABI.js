@@ -1,9 +1,9 @@
 export const ContractABI = [
     {
-        "inputs": [],
-        "payable": false,
-        "stateMutability": "nonpayable",
-        "type": "constructor"
+        'inputs': [],
+        'payable': false,
+        'stateMutability': 'nonpayable',
+        'type': 'constructor'
     },
     {
         "constant": true,

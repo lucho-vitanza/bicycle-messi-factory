@@ -1,21 +1,51 @@
-import logo from "./logo.svg";
-import "./App.css";
-import Login from "./components/Login";
-import React, { useState } from "react";
-import Warehouse from "./components/Warehouse";
-import FactoryCard from "./components/FactoryCard";
-import { dbBicycle } from "./db/dbBicycle";
+import { useRoutes, BrowserRouter } from 'react-router-dom'
+import { ShoppingCardProvider } from './Context';
+import React, { useState } from 'react';
+import Login from '../src/components/Login';
+import Warehouse from '../src/components/Warehouse';
+import FactoryCard from '../src/components/FactoryCard';
+import { dbBicycle } from '../src/db/dbBicycle';
+import Home from '../src/Pages/Home';
+import MyAccount from '../src/Pages/MyAccount';
+import MyOrder from '../src/Pages/MyOrder';
+import MyOroders from '../src/Pages/MyOrders';
+import NotFound from '../src/Pages/Notfound';
+import SignIn from '../src/Pages/SignIn';
+import Navbar from '../src/components/Navbar';
+import './App.css'
 
 function App() {
   // console.log("db en app", dbBicycle)
   return (
-    <div className="">
+    <div className=''>
       <Login />
       <FactoryCard arrBicycle={dbBicycle} />
       <Warehouse />
+      <ShoppingCardProvider>
+        <BrowserRouter>
+        <AppRoutes />
+           <Navbar />
+        </BrowserRouter>
+      </ShoppingCardProvider>
     </div>
-  );
+    )
+  }
+
+const AppRoutes = () => {
+  let routes = useRoutes([
+    { path: '/frontend/src/Pages/Home', Element: <Home /> },
+    { path: '/frontend/src/Pages/my-account', Element: <MyAccount />},
+    { path: '/frontend/src/Pages/my-order', Element: <MyOrder />},
+    { path: '/frontend/src/Pages/my-orders', Element: <MyOroders />},
+    { path: '/*', Element: <NotFound />},
+    { path: '/frontend/src/Pages/sign-in', Element: <SignIn />},
+  ])
+
+  return routes
 }
+
+
+
 
 export default App;
 
