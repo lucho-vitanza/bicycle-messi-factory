@@ -35,8 +35,10 @@ contract CNFTSTOCK {
         uint64 tokenId; //¿ahorra espacio una variable de 64 a 256 bytes
         uint265 owner;
 
+    }
     ///////////////////////// NFT Information //////////////////////////////////////////////////////////
-    mapping (address => mapping (uint256 => SSTOCK) private sStock);// address -> NFT_number_in_wallet -> sStock
+    mapping (address => mapping (uint256 => SSTOCK) private sStock);// nos olvidamos del mapping del adress address -> NFT_number_in_wallet -> sStock
+    Sstock[adress][__counter].timestamp  //investigar que es counter
     mapping (uint256 => address) public nftUserLiberate; // tokenId -> Address of nftUserLiberate
     mapping (uint256 => address) public Owner;
 
@@ -66,11 +68,21 @@ contract CNFTSTOCK {
 
     }
 
+     function getVestingDates(address _of, uint256 _position) external view returns (uint256 _myVesting, uint256 _myTiemstamp)
+    {
+
+        _myVesting=sVesting[_of][_position].amount;
+        _myTiemstamp=sVesting[_of][_position].timeStamp;
+        return(_myVesting, _myTiemstamp);
+    
+    }
+
+
     }
 
     function stockQuantity(address _of) public view returns (int32 _stockQuantity)
     {
-        for(int32 __counter = nftAmount[_of]; __counter>=0; __counter--)
+        for(int32 __counter = nftAmount[_of]; __counter>=0; __counter--) //recomendable es no usar bucle for
         {
             _vestingQuantity+=sVesting[_of][__counter].amount;
             if(__counter==0)
