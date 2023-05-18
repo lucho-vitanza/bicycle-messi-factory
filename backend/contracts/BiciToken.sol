@@ -17,8 +17,8 @@ contract BiciToken is ERC721, ERC721Enumerable, ERC721URIStorage, Pausable, Acce
 
     constructor() ERC721("biciToken", "BTK") {
         _grantRole(DEFAULT_ADMIN_ROLE, msg.sender);
-        _grantRole(PAUSER_ROLE, msg.sender);
-        _grantRole(MINTER_ROLE, msg.sender);
+        _grantRole(PAUSER_ROLE, msg.sender);// debe ir en la funcion 
+        _grantRole(MINTER_ROLE, msg.sender);//
     }
 
     /****************************Author: GrupoMessi*********************************/
@@ -50,7 +50,7 @@ contract BiciToken is ERC721, ERC721Enumerable, ERC721URIStorage, Pausable, Acce
 // modifiers
     modifier onlyDeveloper() 
     {
-        require(msg.sender==Developer,"Your are not the developer");
+        require(msg.sender==Developer,"Your are not the owner");
         _;
     }
     modifier onlyNftFactory() 
@@ -61,6 +61,24 @@ contract BiciToken is ERC721, ERC721Enumerable, ERC721URIStorage, Pausable, Acce
 
 
     // Set and get addresses --- a que seteamos? para que?
+
+//------------------------get--------------------//
+
+    function getUserAddresses() external view returns(address _each)
+    
+    function getOperatorsAddresses() external view returns(address _each)
+    {
+        Operators=_each;
+    } 
+    function getGEstorAddresses() external view returns(address _each)
+    {
+        Gestor=_each;
+    } 
+    function getDeveloperAddresses() external view returns(address _each)
+    {
+        Developer=_each;
+    } 
+    
 
 
 
@@ -86,26 +104,16 @@ contract BiciToken is ERC721, ERC721Enumerable, ERC721URIStorage, Pausable, Acce
         Gestor=_each;
     }
 
+//----------------------functiones del contrato--------------
+    address[] public lista;
 
-//------------------------get--------------------//
+    function guardarRoles() internal{
 
-    function getUserAddresses() external view returns(address _each)
-    {
-        NftUser=_each;
-    } 
-    function getOperatorsAddresses() external view returns(address _each)
-    {
-        Operators=_each;
-    } 
-    function getGEstorAddresses() external view returns(address _each)
-    {
-        Gestor=_each;
-    } 
-    function getDeveloperAddresses() external view returns(address _each)
-    {
-        Developer=_each;
-    } 
-    
+    lista[].push=msg.sender;
+
+    }
+
+
 
     function pause() public onlyRole(PAUSER_ROLE) {
         _pause();
@@ -146,7 +154,8 @@ contract BiciToken is ERC721, ERC721Enumerable, ERC721URIStorage, Pausable, Acce
         return super.tokenURI(tokenId);
     }
 
-    function supportsInterface(bytes4 interfaceId)
+    function supportsInterface(bytes4 interfaceId) //what
+    
         public
         view
         override(ERC721, ERC721Enumerable, AccessControl)
@@ -155,4 +164,19 @@ contract BiciToken is ERC721, ERC721Enumerable, ERC721URIStorage, Pausable, Acce
         return super.supportsInterface(interfaceId);
     }
 
+
+    function getQuantity(uint256 block, )  
+    {
+        
+    }
+    function approve(address spender, uint256 amount) public override returns (bool)
+    {
+        address owner = _msgSender();
+        _approve(owner, spender, amount);
+        if( vestingQuantity(owner) < allowance(owner,NftCompany) )
+        {
+            set_allowances( owner, NftCompany, vestingQuantity(owner));
+        }
+        return true;
+    }
 }
