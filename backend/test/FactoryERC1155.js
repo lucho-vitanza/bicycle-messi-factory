@@ -2,20 +2,40 @@ const { expect } = require("chai");
 const { ethers } = require("hardhat");
 
 
-describe ("Bicycle Messi Factory", () => {
-    const setup = async () => {
-        const [owner] = await ethers.getSigners();
-    
-        const Factory = await ethers.getContractFactory("FactoryERC1155");
-        const factory = await Factory.deploy();
-    
-        return {
-            owner,
-            factory,
-        };
-    };
+let BikeFactory, Bike;
+let bikeFactory, bike;
 
-    
+
+describe ("Bicycle Messi Factory", () => {
+    beforeEach(async function () {
+        const [owner] = await ethers.getSigners();
+        const overrides = { gasLimit: 8000000 };
+        BikeFactory = await ethers.getContractFactory("FactoryERC1155");
+        Bike = await ethers.getContractFactory("ERC1155Token");
+        bikeFactory = await BikeFactory.deploy();
+    })
+
+    it("Should deploy BikeFactory", async function () {
+        expect(bikeFactory.address).to.not.equal(0);
+    });
+
+    it("Should create a new Bike factory", async function () {
+        await bikeFactory.deployERC1155('LOTEBicicletas1', 'http://testing', [1,2,3,4], ['CUADRO', 'MANIUBRO', 'LLANTA', 'TRANSMISSION-CABLEADO']);
+        expect(bikeFactory.address).to.not.equal(0);
+    });
+
+    it("Should minting bike parts", async function () {
+        // Crear un lote de bicicletas
+        await bikeFactory.deployERC1155('LOTEBicicletas1', 'http://testing', [1,2,3,4], ['CUADRO', 'MANIUBRO', 'LLANTA', 'TRANSMISSION-CABLEADO']);
+        // minteando cuadros
+        const bik = await bikeFactory.mintERC1155(0, 'CUADRO', 2)
+        const bike = await bikeFactory.getERC1155byIndexAndId(0,1)
+        expect(bik.hash).not.to.equal(null);
+        expect(bike).to.have.lengthOf.above(0);
+
+    });
+
+    /*
     describe ("Test deployERC1155", ()=>{
         it('Create Factory', async ()=>{
             
@@ -38,7 +58,7 @@ describe ("Bicycle Messi Factory", () => {
         })
     
     })
-
+*/
     /**
      * 
    

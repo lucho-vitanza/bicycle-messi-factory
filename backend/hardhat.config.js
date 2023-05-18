@@ -13,7 +13,8 @@ module.exports = {
   defaultNetwork: "hardhat",
   networks:{
     hardhat:{
-      chainId: 1337
+      chainId: 1337,
+      allowUnlimitedContractSize: true
     },
     goerli:{     
       url: `https://eth-goerli.g.alchemy.com/v2/${POKT_GOERLY_KEY}`,
@@ -22,6 +23,6 @@ module.exports = {
     sepolia:{
       url: `https://eth-sepolia.g.alchemy.com/v2/${ALCHEMY_SEPOLIA_KEY}`,
       accounts: [`0x${ACCOUNT_PRIVATE_KEY}`]
-    }
+    },
   },
 };
