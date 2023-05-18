@@ -1,5 +1,29 @@
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.8.12;
+pragma solidity ^0.8.4;
+
+struct Part {
+        uint id;
+        Kind kind;
+        uint8 model;
+        uint8 mark;
+        uint8 color;
+        State state;
+}
+
+enum State { 
+        Available, 
+        UnderConstruction, 
+        Unavailable 
+}
+    
+enum Kind {
+        Frame,
+        Wheel,
+        Drivetrain,
+        Cabling,
+        Peripheral
+}
+
 
 contract Attribute {
     string[] private model = [
@@ -54,5 +78,4 @@ contract Attribute {
     function getColor(uint idx) public view returns (string memory) {
         return color[idx];
     }
-
 }

@@ -6,36 +6,39 @@ describe ("Bicycle Messi Factory", () => {
     const setup = async () => {
         const [owner] = await ethers.getSigners();
     
-        const Warehouse = await ethers.getContractFactory("Warehouse");
-        const warehouse = await Warehouse.deploy();
+        const Factory = await ethers.getContractFactory("FactoryERC1155");
+        const factory = await Factory.deploy();
     
         return {
             owner,
-            warehouse,
+            factory,
         };
     };
 
-    describe ("Frames", ()=>{
-        it('Build 2 bicycle frames', async ()=>{
     
-            const maxSupply = 2;
-            const model = 0;
-            const mark = 0;
-            const color = 0;
+    describe ("Test deployERC1155", ()=>{
+        it('Create Factory', async ()=>{
+            
+            const { owner, factory } = await setup();
+            console.log('Smart Contract Factory Address: '+ factory.address);
+            console.log('Owner Address: '+  owner.address);
     
-            const { owner, warehouse } = await setup();
-    
-            console.log('Smart Contract Warehouse Address: '+ warehouse.address);
-            //console.log('Owner Address: '+  owner.address);
+
     
             //await warehouse.createStockNFT( maxSupply, model, mark, color);
     
+
+    
             //const amountFrame = await warehouse.balanceOf(owner.address, 1);
     
-            //expect(amountFrame).to.equal(2);
-        })
-    })
+
     
+            //expect(amountFrame).to.equal(2);
+    
+        })
+    
+    })
+
     /**
      * 
    

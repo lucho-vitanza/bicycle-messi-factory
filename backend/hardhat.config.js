@@ -9,7 +9,7 @@ require("@nomiclabs/hardhat-ethers");
 const { POKT_GOERLY_KEY, ALCHEMY_SEPOLIA_KEY, ACCOUNT_PRIVATE_KEY } = process.env;
 
 module.exports = {
-  solidity: "0.8.12",
+  solidity: "0.8.4",
   defaultNetwork: "hardhat",
   networks:{
     hardhat:{
