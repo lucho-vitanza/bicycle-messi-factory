@@ -20,7 +20,6 @@ contract Warehouse is ERC1155, Ownable {
     DrivetrainItem[] private drivetrains;
     CablingItem[] private cablings;
     PeripheralItem[] private peripherals;
-    
     BicycleItem[] public bicicletas;
 
     // Almacenamos el ultimo lote del enum BICYCLE

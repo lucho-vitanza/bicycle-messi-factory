@@ -59,7 +59,7 @@ contract CNFTSTOCK {
             sStock[__counter].tokenId= _tokenID;
             nftAmount[__counter]++;
             success=true;
-            return(success);
+            return(success); 
 
         elif adress is not Owner then: 
         
