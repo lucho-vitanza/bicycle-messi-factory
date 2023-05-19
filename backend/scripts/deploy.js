@@ -1,13 +1,30 @@
 const { ethers } = require("hardhat");
+const fs = require("fs");
+
 
 async function main(){
     const [deployer] = await ethers.getSigners();
     console.log("Deployer: ", deployer);
 
-    const Warehouse = await ethers.getContractFactory("Warehouse");
-    const warehouse = await Warehouse.deploy();
+    const FactoryERC1155 = await ethers.getContractFactory("FactoryBicycle1155");
+    const factoryERC1155 = await FactoryERC1155.deploy();
 
-    console.log("Warehouse Contract Address: ", warehouse.address);
+    console.log("FactoryBicycle1155 Contract Address: ", factoryBicycle1155.address);
+
+    let config = `export const factoryBicycle1155Address = "${factoryBicycle1155.address}"`;
+
+    let data = JSON.stringify(config);
+
+    fs.writeFileSync("../frontend/utils/config.js", JSON.parse(data))
+
+    fs.copyFile(
+        './artifacts/contracts/FactoryBicycle1155.sol/FactoryBicycle1155.json',
+        '../frontend/utils/abi/FactoryBicycle1155.json',
+        (err) => {
+            if (err)
+                console.log('Error Ocurred: ', err);
+        }
+    );
 }
 
 main ()

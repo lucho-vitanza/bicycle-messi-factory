@@ -1,17 +1,28 @@
+/** 
+ * @type import('hardhat/config').HardhatUserConfig 
+ */
+
 require('@nomicfoundation/hardhat-toolbox');
 require('dotenv').config();
+require("@nomiclabs/hardhat-ethers");
 
-/** @type import('hardhat/config').HardhatUserConfig */
+const { POKT_GOERLY_KEY, ALCHEMY_SEPOLIA_KEY, ACCOUNT_PRIVATE_KEY } = process.env;
+
 module.exports = {
-  solidity: "0.8.9",
+  solidity: "0.8.4",
   defaultNetwork: "hardhat",
   networks:{
     hardhat:{
-      chainId: 1337
+      chainId: 1337,
+      allowUnlimitedContractSize: true
     },
     goerli:{     
-      url: process.env.STAGING_POKT_KEY,
-      accounts: [process.env.PRIVATE_KEY],
+      url: `https://eth-goerli.g.alchemy.com/v2/${POKT_GOERLY_KEY}`,
+      accounts: [`0x${ACCOUNT_PRIVATE_KEY}`]
+    },
+    sepolia:{
+      url: `https://eth-sepolia.g.alchemy.com/v2/${ALCHEMY_SEPOLIA_KEY}`,
+      accounts: [`0x${ACCOUNT_PRIVATE_KEY}`]
     },
   },
 };
