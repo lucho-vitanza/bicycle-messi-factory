@@ -70,16 +70,16 @@ function Login() {
   };
 
   return (
-    <div>
-      <div>
+    <div className='bg-cyan-500 shadow-lg shadow-cyan-500/50 ...'>
+      <div  className='rounded-md bg-white shadoe-xs'>
         {connected ? (
-          <div>
+          <div className='flex justify-between items-center fixed z-10 top-0 w-full py-5 px-8 text-sm font-light'>
             <p>Connected to MetaMask</p>
-            <button onClick={buy}>Buy</button>
-            <button onClick={disconnectFromMetaMask}>Logout MetaMask</button>
+            <button className='bg-cyan-500 shadow-lg shadow-cyan-500/50 ...' onClick={buy}>Buy</button>
+            <button  className='rounded-md bg-white shadoe-xs' onClick={disconnectFromMetaMask}>Logout MetaMask</button>
           </div>
         ) : (
-          <button onClick={connectToMetaMask}>Connect to MetaMask</button>
+          <button className='bg-cyan-500 shadow-lg shadow-cyan-500/50 ...' onClick={connectToMetaMask}>Connect to MetaMask</button>
         )}
       </div>
     </div>
