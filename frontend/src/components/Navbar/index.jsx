@@ -77,20 +77,29 @@ const Navbar = () =>{
                 </li>
                 <li>
                     <NavLink 
-                        to='/my-orders' 
-                        className={({ isActive}) =>
-                        isActive ? activeStyle : undefined
-                        }>
-                        My Orders
-                    </NavLink>
-                </li>
-                <li>
-                    <NavLink 
                         to='/my-account' 
                         className={({ isActive}) =>
                         isActive ? activeStyle : undefined
                         }>
                         My Account
+                    </NavLink>
+                </li>
+                 <li>
+                    <NavLink 
+                        to='/my-order' 
+                        className={({ isActive}) =>
+                        isActive ? activeStyle : undefined
+                        }>
+                      My Order
+                    </NavLink>
+                </li>
+                <li>
+                    <NavLink 
+                        to='/my-orders' 
+                        className={({ isActive}) =>
+                        isActive ? activeStyle : undefined
+                        }>
+                      My Orders
                     </NavLink>
                 </li>
                 <li>
@@ -101,9 +110,6 @@ const Navbar = () =>{
                         }>
                         Sign In
                     </NavLink>
-                </li>
-                <li>
-                   🛒 0
                 </li>
             </ul>
         </nav>

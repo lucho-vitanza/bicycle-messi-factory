@@ -64,8 +64,10 @@ function App() {
 
   return (
     <div className='App'>
-        <header className="App-header">
-        <form onSubmit={setData}>
+        {/* <header className="App-header">
+          
+
+        {/* <form onSubmit={setData}>
            <label>
              Set Message:
              <input
@@ -76,22 +78,23 @@ function App() {
             />
           </label>
           <input type="submit" value="Set Message" />
-         </form>
+         </form> */}
         <br />
-        <button onClick={getData} type="button">
+        {/* <button onClick={getData} type="button">
           Get Message
         </button>
        <button onClick={getDefaultData} type="button">
           Get Default Message
-        </button>
-       </header>
-      <Login />
-      <FactoryCard arrBicycle={dbBicycle} />
-      <Warehouse />
+        </button> */}
+       {/* </header> */} 
+    
       <BrowserRouter>
         <AppRoutes />
         <Navbar />
-      </BrowserRouter>  
+      </BrowserRouter> 
+      <Login />
+      <FactoryCard arrBicycle={dbBicycle} />
+      <Warehouse /> 
     </div>
     )
   }
@@ -99,10 +102,10 @@ function App() {
  const AppRoutes = () => {
   let routes = useRoutes([
     { path: '/Home', Element: <Home /> },
-    { path: '/src/Pages/MyAccount', Element: <MyAccount />},
+    { path: '/src/Pages/my-account', Element: <MyAccount />},
     { path: '/src/Pages/MyOrder', Element: <MyOrder /> },
-    { path: '/src/Pages/MyOrders', Element: <MyOroders /> },
-    { path: '/src/Pages/SignIn', Element: <SignIn /> },
+    { path: '/src/Pages/my-orders', Element: <MyOroders /> },
+    { path: '/src/Pages/sign-in', Element: <SignIn /> },
     { path: '/*', Element: <NotFound />},
     
    ])
