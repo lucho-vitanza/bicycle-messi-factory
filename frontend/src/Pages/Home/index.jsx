@@ -1,18 +1,17 @@
-import Layout from '../../components/Layout'
-import BicyCard from '../../components/BicyCard'
+import FactoryCard from "../../components/FactoryCard";
+import Layout from "../../components/Layout";
+import { dbBicycle } from "../../db/dbBicycle";
+
 
 
 function Home() {
-  
+   
   return (
     <Layout>
-       Home
-      <BicyCard />
+      <FactoryCard arrBicycle={dbBicycle} />
     </Layout>
-    
-    
-  )
+
+  );
 }
 
-
-export default Home
+export default Home;

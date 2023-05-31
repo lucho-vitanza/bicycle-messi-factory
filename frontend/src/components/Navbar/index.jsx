@@ -8,7 +8,7 @@ const Navbar = () => {
       <ul className="flex items-center gap-3">
         <li>
           <NavLink
-            to="/Home"
+            to="/"
             className={({ isActive }) => (isActive ? activeStyle : undefined)}
           >
             Home
@@ -17,6 +17,14 @@ const Navbar = () => {
       </ul>
       <ul className="flex items-center gap-3">
         <li>
+          <NavLink
+            to="/my-order"
+            className={({ isActive }) => (isActive ? activeStyle : undefined)}
+          >
+            My Order
+          </NavLink>
+        </li>
+          <li>
           <NavLink
             to="/my-orders"
             className={({ isActive }) => (isActive ? activeStyle : undefined)}

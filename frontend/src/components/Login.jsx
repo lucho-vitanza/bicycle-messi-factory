@@ -71,7 +71,7 @@ function Login() {
 
   return (
     <div >
-      <div>
+      <div className='flex flex-nowrap'>
         {connected ? (
           <div>
             <p>Connected to MetaMask</p>
