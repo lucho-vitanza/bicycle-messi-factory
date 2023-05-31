@@ -22,19 +22,22 @@ describe ("Bicycle Messi Factory", () => {
             const { owner, factory } = await setup();
             console.log('Smart Contract Factory Address: '+ factory.address);
             console.log('Owner Address: '+  owner.address);
-    
+            
+            const _contractName = "Bike Factory Messi";
+            const _uri = "https://gateway.pinata.cloud/ipfs/";
+            const _ids = [1];
+            const _names = ["Benotto"];
 
-    
-            //await warehouse.createStockNFT( maxSupply, model, mark, color);
-    
+            await factory.deployERC1155(_contractName, _uri, _ids, _names);
+            
+            const _idx = 0;
+            const _name = 'Benotto';
+            const _quantity = 7;
 
-    
-            //const amountFrame = await warehouse.balanceOf(owner.address, 1);
-    
+            await factory.mintERC1155(_idx, _name, _quantity);
 
-    
-            //expect(amountFrame).to.equal(2);
-    
+            const response = await factory.getERC1155byIndexAndId(0, 1);
+            console.log ('Respuesta: '+ response);
         })
     
     })

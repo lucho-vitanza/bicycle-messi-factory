@@ -6,14 +6,23 @@ require('@nomicfoundation/hardhat-toolbox');
 require('dotenv').config();
 require("@nomiclabs/hardhat-ethers");
 
-const { POKT_GOERLY_KEY, ALCHEMY_SEPOLIA_KEY, ACCOUNT_PRIVATE_KEY } = process.env;
+const { POKT_GOERLY_KEY, ALCHEMY_SEPOLIA_KEY, ACCOUNT_PRIVATE_KEY, ETHERSCAN_API_KEY } = process.env;
 
 module.exports = {
-  solidity: "0.8.4",
+  solidity: {
+    version: "0.8.9",
+    settings: {
+      optimizer: {
+        enabled: true,
+        runs: 200
+      }
+    }
+  },
   defaultNetwork: "hardhat",
   networks:{
     hardhat:{
-      chainId: 1337
+      chainId: 1337,
+      allowUnlimitedContractSize: true,
     },
     goerli:{     
       url: `https://eth-goerli.g.alchemy.com/v2/${POKT_GOERLY_KEY}`,
@@ -24,4 +33,9 @@ module.exports = {
       accounts: [`0x${ACCOUNT_PRIVATE_KEY}`]
     }
   },
+  etherscan: {
+    apiKey: {
+      goerli: ETHERSCAN_API_KEY
+    }
+  }
 };

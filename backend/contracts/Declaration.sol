@@ -1,5 +1,13 @@
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.8.4;
+pragma solidity ^0.8.9;
+
+
+struct Bike {
+    uint quantity;
+    uint8 model;
+    address owner;
+    State state;
+}
 
 struct Part {
         uint id;
