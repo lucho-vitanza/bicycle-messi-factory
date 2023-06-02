@@ -20,7 +20,7 @@ web3.eth.defaultAccount = web3.eth.accounts[0];
 
 const RemixContract = new web3.eth.Contract(
   ContractABI,
-  "0x9Ab60476c94a0E2f98A6E741b9E726AEBd6B4c5f"
+  "0xef9f5a506216f9c86ab39b8d7835849267ed089a"
 ); 
 
 function App() {
@@ -49,7 +49,7 @@ function App() {
 
 
   return (
-    <Router>
+    <Router  >
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />

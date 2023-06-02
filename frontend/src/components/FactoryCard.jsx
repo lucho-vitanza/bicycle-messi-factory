@@ -4,8 +4,8 @@ import cart from '../assets/cart.svg';
 
 function FactoryCard({ arrBicycle }) {
   const listCards = arrBicycle?.map((bicycle, index) => (
-    <div key={index} className='bg-white cursor-pointer w-56 h-60 rounded-lg'>
-      <BicyCard className='flex justify-between text-sm font-light text-lg font-medium'
+    <div key={index} class='white-black cursor-pointer w-56 h-60 rounded-lg'>
+      <BicyCard className='flex justify-between text-sm font-light'
         text={bicycle.text}
         price={bicycle.price}
         coin={bicycle.coin}
