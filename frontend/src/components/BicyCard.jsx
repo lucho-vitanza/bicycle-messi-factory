@@ -1,22 +1,24 @@
-import React from 'react'
+import React from "react";
 
-function BicyCard({ text, urlImg, price, coin }) {
+const BicyCard = ({ text, urlImg, price, coin }) => {
   return (
-   
-  <div className=" relative mb-2  w-full h-4/5 flex flex-col space-y-2 columns-2">
-    <img className="w-full h-full items-center object-cover rounded-lg h-24 w-24" alt={text} src={urlImg} />
-    <span className='absolute bottom-0 left-0 bg-white/60 rounded-lg text-black text-xs m-2 px-3 py-0.5'>BICYCLE</span> 
-    <section>
-      <p>{price}</p>
-      <p>{coin}</p>
-      <p>{text}</p>
-    </section>
+    <div className="w-1/2 p-2">
+    <div className="sm:w-4 sm:h-40 relative">
+      <img
+        className="w-full h-24 object-cover rounded-lg"
+        src={urlImg}
+        alt=""
+      />
+    </div>
+    <div className="bottom-0 left-0 right-0 p-2">
+      <div className="bg-white p-2 rounded-lg">
+        <p className="mb-1 text-sm font-medium">{price}</p>
+        <p className="text-xs">{coin}</p>
+      </div>
+      <p className="mt-1 text-sm">{text}</p>
+    </div>
   </div>
-    
   );
-}
-  
-
-
+};
 
 export default BicyCard;

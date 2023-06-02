@@ -24,7 +24,7 @@ const Navbar = () => {
             My Order
           </NavLink>
         </li>
-          <li>
+        <li>
           <NavLink
             to="/my-orders"
             className={({ isActive }) => (isActive ? activeStyle : undefined)}
@@ -40,7 +40,7 @@ const Navbar = () => {
             My Account
           </NavLink>
         </li>
-            <li>
+        <li>
           <NavLink
             to="/usuarios"
             className={({ isActive }) => (isActive ? activeStyle : undefined)}
@@ -48,9 +48,10 @@ const Navbar = () => {
             Usuarios
           </NavLink>
         </li>
+        
       </ul>
     </nav>
   );
 };
 
-export default Navbar
+export default Navbar;
