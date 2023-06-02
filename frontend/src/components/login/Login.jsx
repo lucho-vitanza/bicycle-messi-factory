@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Web3 from 'web3';
-import { ContractABI } from '../abi/ContractABI';
+import { ContractABI } from '../../abi/ContractABI';
+import './index.css'
 
 const web3 = new Web3(new Web3.providers.HttpProvider('HTTP://127.0.0.1:7545'));
 //web3.eth.defaultAccount = web3.eth.accounts[0];
@@ -71,15 +72,15 @@ function Login() {
 
   return (
     <div >
-      <div className='flex flex-nowrap'>
+      <div >
         {connected ? (
           <div>
             <p>Connected to MetaMask</p>
             <button  onClick={buy}>Buy</button>
-            <button  onClick={disconnectFromMetaMask}>Logout MetaMask</button>
+            <button  onClick={disconnectFromMetaMask}>Logout  MetaMask</button>
           </div>
         ) : (
-          <button  onClick={connectToMetaMask}>Connect to MetaMask</button>
+          <button  className='mx-auto bg-yerllow-600 absolute botoom-0 left-0 ' onClick={connectToMetaMask}>Connect to MetaMask</button>
         )}
       </div>
     </div>

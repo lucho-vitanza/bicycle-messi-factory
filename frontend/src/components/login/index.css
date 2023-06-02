@@ -1,0 +1,15 @@
+.login{
+  .button-metamask {
+  background-color: #ff8800;
+  color: #ffffff;
+  padding: 10px 20px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+}
+
+.button-metamask:hover {
+  background-color: #ff9900;
+}
+
+}

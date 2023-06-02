@@ -40,6 +40,14 @@ const Navbar = () => {
             My Account
           </NavLink>
         </li>
+            <li>
+          <NavLink
+            to="/usuarios"
+            className={({ isActive }) => (isActive ? activeStyle : undefined)}
+          >
+            Usuarios
+          </NavLink>
+        </li>
       </ul>
     </nav>
   );

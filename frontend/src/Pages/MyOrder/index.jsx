@@ -1,11 +1,13 @@
-import Layout from '../../components/Layout'
+import Layout from '../../components/Layout';
+import Form from "../../components/Form";
 
 function MyOrder() {
   return (
     <Layout>
-     MyOrder
+     <Form />
     </Layout>
-  )
+   
+  );
 }
 
-export default MyOrder
+export default MyOrder;
