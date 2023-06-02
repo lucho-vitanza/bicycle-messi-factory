@@ -21,8 +21,8 @@ function Warehouse() {
       };
 
   return (
-    <div>
-        <button onClick={getAllCablings}>getAllCablings</button>
+    <div className='bg-azul-800 static absolute bottom-0 left-0 ps-4'>
+        <button  onClick={getAllCablings}>getAllCablings</button>
     </div>
   )
 }

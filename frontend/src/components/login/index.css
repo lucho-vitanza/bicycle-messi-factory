@@ -1,15 +1,30 @@
-.login{
-  .button-metamask {
-  background-color: #ff8800;
-  color: #ffffff;
+ .login {
+   .button-metamask {
+  display: inline-block;
   padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  background-color: #10b981;
+  color: #10b981;
   border-radius: 5px;
   border: none;
   cursor: pointer;
 }
 
-.button-metamask:hover {
-  background-color: #ff9900;
+.metamask-button:hover {
+  background-color: #10b981;
 }
 
+.metamask-button:active {
+  background-color: #10b981;
 }
+
+.metamask-button:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(246, 133, 27, 0.4);
+}
+
+ }
+ 

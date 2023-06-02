@@ -75,12 +75,12 @@ function Login() {
       <div >
         {connected ? (
           <div>
-            <p>Connected to MetaMask</p>
+            <p className='text-lg'>Connected to MetaMask</p>
             <button  onClick={buy}>Buy</button>
-            <button  onClick={disconnectFromMetaMask}>Logout  MetaMask</button>
+            <button onClick={disconnectFromMetaMask}>Logout  MetaMask</button>
           </div>
         ) : (
-          <button  className='mx-auto bg-yerllow-600 absolute botoom-0 left-0 ' onClick={connectToMetaMask}>Connect to MetaMask</button>
+          <button className='bg-esmerald-500 shadow-lg shadow-esmerald-500 absolute w-26 h-22 right-8' onClick={connectToMetaMask}>Connect to MetaMask</button>
         )}
       </div>
     </div>

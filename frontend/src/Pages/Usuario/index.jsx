@@ -1,4 +1,4 @@
-/* import Layout from '../../components/Layout';
+import Layout from '../../components/Layout';
 import Boton from '../../components/Boton';
 
 function Usuarios() {
@@ -10,4 +10,4 @@ function Usuarios() {
   );
 }
 
-export default Usuarios; */
+export default Usuarios;

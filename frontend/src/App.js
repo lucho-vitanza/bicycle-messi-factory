@@ -2,13 +2,13 @@ import React, { useState } from "react";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import Web3 from "web3";
 import { ContractABI } from "./abi/ContractABI";
-import Login from "./components/login/Login";
+import Login from "../src/components/login/Login";
 import Warehouse from "../src/components/Warehouse";
 import Home from "../src/Pages/Home";
 import MyAccount from "../src/Pages/MyAccount";
 import MyOrder from "../src/Pages/MyOrder";
 import MyOrders from "../src/Pages/MyOrders";
-/* import Usuarios from "../src/Pages/Usuario"; */
+import Usuario from "./Pages/Usuario";
 import SignIn from "../src/Pages/SignIn";
 import Navbar from "../src/components/Navbar";
 import NotFound from "../src/Pages/Notfound";
@@ -50,18 +50,19 @@ function App() {
 
   return (
     <Router  >
+     
       <Navbar />
+       <Login />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/my-order" element={<MyOrder />} />
         <Route path="/my-orders" element={<MyOrders />} />
         <Route path="/my-account" element={<MyAccount />} />
-      {/*   <Route path="/usuarios" element={<Usuarios />} /> */}
-      </Routes>
-       <Login />
-      <Warehouse />
+        <Route path="/usuarios" element={<Usuario />} />
+     </Routes>
    
-   </Router>
+     <Warehouse />
+    </Router>
    
   );
 }

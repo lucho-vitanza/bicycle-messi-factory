@@ -8,8 +8,8 @@ function Boton() {
   };
 
   return (
-    <div>
-      <h1>Tu aplicación</h1>
+    <div >
+      <h1>Bycicle</h1>
       <button onClick={mostrarEstadoCompra}>Mostrar Estado de Compra</button>
     </div>
   );
