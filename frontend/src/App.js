@@ -50,9 +50,9 @@ function App() {
 
   return (
     <Router  >
-     
+      <Login />
       <Navbar />
-       <Login />
+    
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/my-order" element={<MyOrder />} />
