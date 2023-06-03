@@ -80,7 +80,7 @@ function Login() {
             <button onClick={disconnectFromMetaMask}>Logout  MetaMask</button>
           </div>
         ) : (
-          <button className='bg-esmerald-500 shadow-lg shadow-esmerald-500 absolute w-26 h-22 right-8' onClick={connectToMetaMask}>Connect to MetaMask</button>
+          <button className='bg-emerald-500 shadow-lg shadow-emerald-500 absolute w-26 h-22 right-8' onClick={connectToMetaMask}>Connect to MetaMask</button>
         )}
       </div>
     </div>
