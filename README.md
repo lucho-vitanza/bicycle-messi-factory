@@ -1,5 +1,5 @@
 # Bicycle-messi-factory
-Proyecto modelo Web3 para la desentralizacion de cadenas de produccion de bicicletas en el marco del Etherium Developer Program de Platzi
+Proyecto modelo Web3 para la descentralización de cadenas de producción de bicicletas en el marco del Ethereum Developer Program de Platzi
 
 ## Definición del proyecto
 
