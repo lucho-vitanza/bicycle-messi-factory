@@ -2,7 +2,7 @@ import React from "react";
 
 const BicyCard = ({ text, urlImg, price, coin }) => {
   return (
-    <div className="w-56 h-8 m-2 mt-20 ">
+    <div className="w-56 h-64 m-2 rounded-md border border-gray-300">
       <div className="w-full h-40 relative">
         <img
           className="w-full h-full object-cover rounded-lg"

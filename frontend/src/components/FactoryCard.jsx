@@ -5,7 +5,7 @@
 
   const FactoryCard = ({ arrBicycle }) => {
     const listCards = arrBicycle?.map((bicycle, index) => (
-      <div key={index} className='mt-32'>
+      <div key={index} className='mt-32 '>
         <BicyCard 
           text={bicycle.text}
           price={bicycle.price}
