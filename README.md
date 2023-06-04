@@ -11,7 +11,13 @@ Plataforma de interacción con contratos desplegados en Goerli desarrollados par
 
 ## Equipo
 
+
 [![38fd316db422c192fc05fa75070488d5.jpg](https://i.postimg.cc/GpzgmnVC/38fd316db422c192fc05fa75070488d5.jpg)](https://postimg.cc/Z9Bxw2J7)
+
+
+{Antonio Obregón; Jonhatan Vazquez ; Miguel Ruiz ; Kelly Saldaña; Luciano Vitanza} ----> de izquierda a derecha
+
+
 
 ## [- Backend](backend)
 
