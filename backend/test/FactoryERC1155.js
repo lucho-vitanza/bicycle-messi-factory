@@ -2,63 +2,46 @@ const { expect } = require("chai");
 const { ethers } = require("hardhat");
 
 
-let BikeFactory, Bike;
-let bikeFactory, bike;
-
-
 describe ("Bicycle Messi Factory", () => {
-    beforeEach(async function () {
+    const setup = async () => {
         const [owner] = await ethers.getSigners();
-        const overrides = { gasLimit: 8000000 };
-        BikeFactory = await ethers.getContractFactory("FactoryBicycle1155");
-        Bike = await ethers.getContractFactory("Bicycle1155Token");
-        bikeFactory = await BikeFactory.deploy();
-    })
+    
+        const Factory = await ethers.getContractFactory("FactoryERC1155");
+        const factory = await Factory.deploy();
+    
+        return {
+            owner,
+            factory,
+        };
+    };
 
-    it("Should deploy BikeFactory", async function () {
-        expect(bikeFactory.address).to.not.equal(0);
-    });
-
-    it("Should create a new Bike factory", async function () {
-        await bikeFactory.deployBicycle1155('LOTEBicicletas1', 'http://testing', [1,2,3,4], ['CUADRO', 'MANIUBRO', 'LLANTA', 'TRANSMISSION-CABLEADO']);
-        expect(bikeFactory.address).to.not.equal(0);
-    });
-
-    it("Should minting bike parts", async function () {
-        // Crear un lote de bicicletas
-        await bikeFactory.deployBicycle1155('LOTEBicicletas1', 'http://testing', [1,2,3,4], ['CUADRO', 'MANIUBRO', 'LLANTA', 'TRANSMISSION-CABLEADO']);
-        // minteando cuadros
-        const bik = await bikeFactory.mintBicycle1155(0, 'CUADRO', 2)
-        const bike = await bikeFactory.getBicycle1155byIndexAndId(0,1)
-        expect(bik.hash).not.to.equal(null);
-        expect(bike).to.have.lengthOf.above(0);
-
-    });
-
-    /*
+    
     describe ("Test deployERC1155", ()=>{
         it('Create Factory', async ()=>{
             
             const { owner, factory } = await setup();
             console.log('Smart Contract Factory Address: '+ factory.address);
             console.log('Owner Address: '+  owner.address);
-    
+            
+            const _contractName = "Bike Factory Messi";
+            const _uri = "https://gateway.pinata.cloud/ipfs/";
+            const _ids = [1];
+            const _names = ["Benotto"];
 
-    
-            //await warehouse.createStockNFT( maxSupply, model, mark, color);
-    
+            await factory.deployERC1155(_contractName, _uri, _ids, _names);
+            
+            const _idx = 0;
+            const _name = 'Benotto';
+            const _quantity = 7;
 
-    
-            //const amountFrame = await warehouse.balanceOf(owner.address, 1);
-    
+            await factory.mintERC1155(_idx, _name, _quantity);
 
-    
-            //expect(amountFrame).to.equal(2);
-    
+            const response = await factory.getERC1155byIndexAndId(0, 1);
+            console.log ('Respuesta: '+ response);
         })
     
     })
-*/
+
     /**
      * 
    

@@ -1,20 +1,31 @@
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.8.4;
+pragma solidity ^0.8.9;
 
 import "@openzeppelin/contracts/token/ERC1155/ERC1155.sol";
+
 import "@openzeppelin/contracts/access/Ownable.sol";
 import "@openzeppelin/contracts/utils/Strings.sol";
+import "@openzeppelin/contracts/utils/Counters.sol";
 
-contract Bicycle1155Token is ERC1155, Ownable {
+import "./Declaration.sol";
+
+
+contract ERC1155Token is ERC1155, Ownable {
+    using Counters for Counters.Counter;
+    Counters.Counter private _tokenIds;
 
     string[] public bicyclePartNames; //string array bicycle part names
     uint[] public ids; //uint array ids of part names
     string public baseMetadataURI; //URI metadata
     string public contractName; //the token mame
     uint public mintFee = 0 wei; //mintfee, 0 by default. only used in mint function, not batch.
+    //-----------------------
     
-    mapping(string => uint) public biciclePartNameToId ; //part name to id mapping
-    mapping(uint => string) public idToBicyclePartName; //id to part name mapping
+    mapping(string => uint) public nameToId; //name to id mapping
+    mapping(uint => string) public idToName; //id to name mapping
+    //------------------------
+    mapping(uint => Bike) public idOrderToBike; //Numero de orden hacia Bicicletas
+
 
     /*
     constructor is executed when the factory contract calls its own deployERC1155 method
@@ -96,4 +107,15 @@ contract Bicycle1155Token is ERC1155, Ownable {
     {
         _mintBatch(to, _ids, amounts, data);
     }
+
+    // Almacena en un mapping con el id de la orden y las bicicletas solicitadas
+    function createOrder(uint _quantity, uint8 _model) public returns (uint){
+        uint idOrder = _tokenIds.current();
+
+        idOrderToBike[idOrder] = Bike (_quantity, _model, msg.sender, State.UnderConstruction);
+        
+        _tokenIds.increment();
+        return idOrder;
+    }
+
 }

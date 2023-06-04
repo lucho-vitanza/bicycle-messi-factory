@@ -1,1 +1,1 @@
-export const abiWarehouseAddress = "0x659BfEb89711ff41c7E0FC0e74896Ce8692BE959"
+export const factoryERC1155Address = "0x48A3C684890629a80e8DF4993506Ffe31675E66F"
