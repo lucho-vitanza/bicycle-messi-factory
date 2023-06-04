@@ -9,6 +9,11 @@ Conjunto de reglas y funciones en solidity L1 con el fin de desarrollar contrato
 
 Plataforma de interacción con contratos desplegados en Goerli desarrollados para la producción de bicicletas individuales y lotes de bicicletas cuyos contratos producen un NFT asociado a un bien físico.
 
+## Equipo
+
+![Imagen del equipo creativa]
+
+[./docs/images/38fd316db422c192fc05fa75070488d5.jpg](https://github.com/lucho-vitanza/bicycle-messi-factory/blob/main/docs/images/38fd316db422c192fc05fa75070488d5.jpg)
 
 ## [- Backend](backend)
 
