@@ -1,6 +1,5 @@
 # Bicycle-messi-factory
-Proyecto de producción desentralizada de bicicletas. Para etherium developer program. Platzi
-
+Proyecto modelo Web3 para la desentralizacion de cadenas de produccion de bicicletas en el marco del Etherium Developer Program de Platzi
 
 ## Definición del proyecto
 
@@ -17,5 +16,3 @@ Plataforma de interacción con contratos desplegados en Goerli desarrollados par
 
 ## Licence
 MIT
-
-
