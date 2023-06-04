@@ -31,7 +31,7 @@ module.exports = {
     sepolia:{
       url: `https://eth-sepolia.g.alchemy.com/v2/${ALCHEMY_SEPOLIA_KEY}`,
       accounts: [`0x${ACCOUNT_PRIVATE_KEY}`]
-    }
+    },
   },
   etherscan: {
     apiKey: {

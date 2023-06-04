@@ -14,10 +14,10 @@ contract ERC1155Token is ERC1155, Ownable {
     using Counters for Counters.Counter;
     Counters.Counter private _tokenIds;
 
-    string[] public names; //string array of names
-    uint[] public ids; //uint array of ids
-    string public baseMetadataURI; //the token metadata URI
-    string public name; //the token mame
+    string[] public bicyclePartNames; //string array bicycle part names
+    uint[] public ids; //uint array ids of part names
+    string public baseMetadataURI; //URI metadata
+    string public contractName; //the token mame
     uint public mintFee = 0 wei; //mintfee, 0 by default. only used in mint function, not batch.
     //-----------------------
     
@@ -30,13 +30,13 @@ contract ERC1155Token is ERC1155, Ownable {
     /*
     constructor is executed when the factory contract calls its own deployERC1155 method
     */
-    constructor(string memory _contractName, string memory _uri, string[] memory _names, uint[] memory _ids) ERC1155(_uri) {
-        names = _names;
+    constructor(string memory _contractName, string memory _uri, string[] memory _bicyclePartNames, uint[] memory _ids) ERC1155(_uri) {
+        bicyclePartNames = _bicyclePartNames;
         ids = _ids;
         createMapping();
         setURI(_uri);
         baseMetadataURI = _uri;
-        name = _contractName;
+        contractName = _contractName;
         transferOwnership(tx.origin);
     }   
 
@@ -45,8 +45,8 @@ contract ERC1155Token is ERC1155, Ownable {
     */
     function createMapping() private {
         for (uint id = 0; id < ids.length; id++) {
-            nameToId[names[id]] = ids[id];
-            idToName[ids[id]] = names[id];
+            biciclePartNameToId[bicyclePartNames[id]] = ids[id];
+            idToBicyclePartName[ids[id]] = bicyclePartNames[id];
         }
     }
     /*
@@ -62,7 +62,7 @@ contract ERC1155Token is ERC1155, Ownable {
     }
 
     function getNames() public view returns(string[] memory) {
-        return names;
+        return bicyclePartNames;
     }
 
     /*
