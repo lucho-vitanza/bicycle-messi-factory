@@ -11,6 +11,10 @@ const { POKT_GOERLY_KEY, ALCHEMY_SEPOLIA_KEY, ACCOUNT_PRIVATE_KEY, ETHERSCAN_API
 module.exports = {
   solidity: {
     version: "0.8.9",
+    paths: {
+      sources: "./contracts",
+      artifacts: "./artifacts",
+    },
     settings: {
       optimizer: {
         enabled: true,
@@ -31,7 +35,7 @@ module.exports = {
     sepolia:{
       url: `https://eth-sepolia.g.alchemy.com/v2/${ALCHEMY_SEPOLIA_KEY}`,
       accounts: [`0x${ACCOUNT_PRIVATE_KEY}`]
-    },
+    }
   },
   etherscan: {
     apiKey: {

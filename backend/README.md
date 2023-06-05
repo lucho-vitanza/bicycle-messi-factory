@@ -27,11 +27,12 @@ npx hardhat test
 Set environment variables: 
 POKT_GOERLY_KEY, ALCHEMY_SEPOLIA_KEY, ACCOUNT_PRIVATE_KEY, ETHERSCAN_API_KEY
 
+- Despliegue en goerly
 ```sh
 npx hardhat run scripts/deploy.js --network goerli
 ```
 
 ## Siguientes pasos
   
-- Agregar Push protocol para envio de notificationes a la hora de finalizar la produccion de un pedido de bicicleta al comprador
+- Agregar Push protocol para envio de notificationes a la hora de finalizar la producción de un pedido de bicicleta al comprador
 
