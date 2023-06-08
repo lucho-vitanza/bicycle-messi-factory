@@ -21,7 +21,7 @@ function Warehouse() {
       };
 
   return (
-    <div className='bg-azul-800 static absolute bottom-0 left-0 ps-4'>
+    <div className='bg-azul-800  bottom-0 left-0 top-0 ps-4 bg-gradient-to-r from-green-100 to-green-200'>
         <button  onClick={getAllCablings}>getAllCablings</button>
     </div>
   )

@@ -2,7 +2,7 @@ import FactoryCard from "../../components/FactoryCard";
 import Layout from "../../components/Layout";
 import { dbBicycle } from "../../db/dbBicycle";
 
-function Home() {
+function Bicycle() {
   return (
     <Layout>
       <FactoryCard arrBicycle={dbBicycle} />
@@ -10,4 +10,4 @@ function Home() {
   );
 }
 
-export default Home;
+export default Bicycle;
