@@ -1,5 +1,5 @@
 import { NavLink } from "react-router-dom";
-
+import Login from "../login/Login";
 const Navbar = () => {
   const activeStyle = "underline underline-offset-4";
 
@@ -46,8 +46,11 @@ const Navbar = () => {
             to="/usuarios"
             className={({ isActive }) => (isActive ? activeStyle : undefined)}
           >
-            Usuarios
+            Admin
           </NavLink>
+        </li>
+        <li>
+          <Login/>
         </li>
       </ul>
     </nav>

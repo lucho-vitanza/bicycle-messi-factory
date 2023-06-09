@@ -14,6 +14,8 @@ import Navbar from "../src/components/Navbar";
 import NotFound from "../src/Pages/Notfound";
 import "./App.css";
 import { initializeApp } from "firebase/app";
+import Button from 'react-bootstrap/Button';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 // Import the functions you need from the SDKs you need
@@ -70,9 +72,7 @@ function App() {
 
   return (
     <Router  >
-      <Login />
       <Navbar />
-    
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/my-order" element={<MyOrder />} />
